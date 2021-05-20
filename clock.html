@@ -14,13 +14,14 @@
         margin: 10px;
         padding: 20px;
         border: 1px solid rgb(218, 218, 218, .3);
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
+        float: left;
         text-align: center;
     }
     .num span{
         display: inline-block;
-        position: relative;
+        position: a;
     }
     .num span::after,.num span::before{
         content: '';
@@ -95,6 +96,16 @@
 <body>
     <template id="userCardTemplate">
         <style>
+            .dot{
+                display: block !important;
+                width: 28%;
+                height: 28%;
+                top: 10%;
+                left: 30%;
+                margin-top: 10%;
+                background-color: rgb(238 238 238);
+                border-radius: 50%;
+            }
             .one{
                 background-color: rgb(238 238 238);
                 width: 30%;
@@ -145,12 +156,40 @@
                 background-color: rgb(238 238 238);
                 box-shadow:2px 2px 3px 0px rgb(0 0 0 / 50%);
             }
+            .three-1{
+                background-color: rgb(128 222 235);
+                width: 36%;
+                height: 60%;
+                left: 30%;
+                top: 33%;
+                border-radius:0 100px 100px 0;
+                animation: wave-1 infinite 4s ;
+                z-index: 10;
+            }
+            .three-2{
+                background-color: rgb(238 238 220);
+                width: 40%;
+                height: 60%;
+                left: 30%;
+                top: 60%;
+                border-radius:0 100px 100px 0;
+                animation: wave-1 infinite 4s ;
+                z-index: 1;
+            }
         </style>
         <div class="num">
             <span class="one shadow-1"></span>
         </div>
         <div class="num">
+            <span class="dot shadow-1"></span>
+            <span class="dot shadow-1"></span>
+        </div>
+        <div class="num">
             <span class="two shadow-1"></span>
+        </div>
+        <div class="num">
+            <span class="three-1 shadow-1"></span>
+            <span class="three-2 shadow-1"></span>
         </div>
     </template>
     <muti-nums></muti-nums>
