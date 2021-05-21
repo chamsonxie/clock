@@ -7,8 +7,14 @@
     <title>Document</title>
 </head>
 <style>
+    :root {
+        --material-white-color: rgb(238,238,238);
+        --material-blue-color: rgb(0,171,194);
+        --material-light-blue-color: rgb(128,222,235);
+        --main-bg-color: rgb(20,189,215);
+    }
     html{
-        background-color: rgb(20 189 215);
+        background-color: var(--main-bg-color);
     }
     .num {
         position: relative;
@@ -121,7 +127,7 @@
                 animation: wave infinite 4s ;
                 margin-top: 10%;
                 margin-left: 36%;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
                 border-radius: 50%;
             }
             .num span{
@@ -138,7 +144,7 @@
                 top: 6%; 
                 left: 10%;
                 animation: wave-2 infinite 4s ;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
                 border-radius: 50%;
             }
             .num .zero-2{
@@ -148,7 +154,7 @@
                 top: 10%;
                 animation: wave-3 infinite 4s ;
                 border-radius:100px 100px 0 0;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
             }
             .num .one-1{
                 width: 24%;
@@ -156,7 +162,7 @@
                 left: 40%;
                 top: 5%;
                 animation: wave-2 infinite 4s ;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
             }
             .num .one-2{
                 width: 30%;
@@ -165,7 +171,7 @@
                 left: 24%;
                 top: 5%;
                 animation: wave infinite 4s ;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
                 box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
                 3px 1px 6px 0px rgb(0 0 0 / 30%);
             }
@@ -177,7 +183,7 @@
                 top: 70%;
                 z-index: 10;
                 animation: wave-2 infinite 4s ;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
                 box-shadow:2px 2px 3px 0px rgb(0 0 0 / 50%);
             }
             .num .two-2{
@@ -187,12 +193,12 @@
                 left: 18%;
                 top: 8%;
                 animation: wave infinite 4s ;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
                 box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
                 3px 1px 6px 0px rgb(0 0 0 / 30%);
             }
             .num .two-3{
-                background-color: rgb(128 222 235);
+                background-color: var(--material-light-blue-color);
                 width: 36%;
                 height: 55%;
                 top: 10%;
@@ -203,7 +209,7 @@
             }
             
             .num .three-1{
-                background-color: rgb(128 222 235);
+                background-color: var(--material-light-blue-color);
                 width: 28%;
                 height: 40%;
                 left: 40%;
@@ -221,7 +227,7 @@
                 border-radius: 50%;
                 animation: wave infinite 4s ;
                 box-shadow:2px 2px 3px 0px rgb(0 0 0 / 50%);
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
             }
             .num .three-3{
                 width: 36%;
@@ -230,7 +236,7 @@
                 top: 36%;
                 border-radius:0 100px 100px 0;
                 animation: wave-1 infinite 4s ;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
                 z-index: 1;
             }
             .num .three-4{
@@ -242,10 +248,10 @@
                 border-radius: 50%;
                 animation: wave-2 infinite 4s ;
                 box-shadow:2px 2px 3px 0px rgb(0 0 0 / 50%);
-                background-color: rgb(128 222 235);
+                background-color: var(--material-light-blue-color);
             }
             .num .four-1{
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
                 width: 20%;
                 height: 80%;
                 left: 55%;
@@ -260,7 +266,7 @@
                 z-index: 10;
                 border-radius: 100px 0 0 0;
                 animation: wave infinite 4s ;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
             }
             .num .four-4{
                 width: 66%;
@@ -269,7 +275,7 @@
                 top: 56%;
                 z-index: 5;
                 animation: wave-1 infinite 4s ;
-                background-color: rgb(128 222 235);
+                background-color: var(--material-light-blue-color);
             }
             .num .five-1{
                 width: 42%;
@@ -278,7 +284,7 @@
                 top: 32%;
                 animation: wave-2 infinite 4s ;
                 border-radius: 0 100px 100px 0;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
             }
             .num .five-3{
                 width: 24%;
@@ -287,7 +293,7 @@
                 left: 20%;
                 border-radius: 50%;
                 animation: wave-2 infinite 4s ;
-                background-color: rgb(128 222 235);
+                background-color: var(--material-light-blue-color);
             }
             .num .five-4{
                 width: 76%;
@@ -295,7 +301,7 @@
                 top: 10%;
                 left: 16%;
                 animation: wave-3 infinite 4s ;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
             }
             .num .six-1{
                 width: 55%;
@@ -304,7 +310,7 @@
                 top: 36%;
                 border-radius: 50%;
                 animation: wave-2 infinite 4s ;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
             }
             .num .six-4{
                 width: 26%;
@@ -313,7 +319,7 @@
                 top: 0%;
                 transform: rotate(30deg);
                 animation: wave infinite 4s ;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
             }
             .num .seven-1{
                 width: 14%;
@@ -321,7 +327,7 @@
                 left: 56%;
                 top: 8%;
                 animation: wave-2 infinite 4s ;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
             }
             .num .seven-4{
                 width: 56%;
@@ -329,7 +335,7 @@
                 left: 24%;
                 top: 8%;
                 animation: wave infinite 4s ;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
             }
             .num .eight-1{
                 width: 65%;
@@ -338,7 +344,7 @@
                 top: 30%;
                 border-radius: 50%;
                 animation: wave-1 infinite 4s ;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
             }
             .num .eight-4{
                 width: 50%;
@@ -347,7 +353,7 @@
                 top: 3%;
                 border-radius: 50%;
                 animation: wave infinite 4s ;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
             }
             .num .nine-1{
                 width: 20%;
@@ -356,7 +362,7 @@
                 top: 30%;
                 border-radius: 0;
                 animation: wave-2 infinite 4s ;
-                background-color: rgb(238 238 238);
+                background-color: var(--material-white-color);
             }
             .num .nine-4{
                 width: 50%;
@@ -365,7 +371,7 @@
                 top: 6%;
                 border-radius: 50%;
                 animation: wave infinite 4s ;
-                background-color: rgb(0 171 194);
+                background-color: var(--material-blue-color);
             }
         </style>
         <div style="overflow: hidden;">
