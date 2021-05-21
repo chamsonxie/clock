@@ -11,21 +11,28 @@
         background-color: rgb(20 189 215);
     }
     .num {
-        margin: 10px;
-        padding: 20px;
+        position: relative;
+        margin: 30px 10px;
+        border-radius: 20px;
+        padding: 16px;
         border: 1px solid rgb(218, 218, 218, .3);
-        height: 150px;
-        width: 150px;
+        height: 80px;
+        width: 80px;
         float: left;
         text-align: center;
     }
     .num span{
         display: inline-block;
-        position: a;
+        position: relative;
+        width: 0%;
+        height: 0%;
+        transition: all 0.6s;
     }
     .num span::after,.num span::before{
         content: '';
         display: block;
+        width: 0%;
+        height: 0%;
         position: absolute;
     }
     .shadow-1{
@@ -92,27 +99,73 @@
             transform: translateX(0px) translateY(0px);
         }
     }
+    @keyframes wave-3{
+        0%{
+            transform: translateX(0%) translateY(0%);
+            box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
+                3px 1px 6px 0px rgb(0 0 0 / 30%);
+        }
+        25%{
+            transform: translateX(0%) translateY(15%);
+            box-shadow:3px 5px 10px 1px rgb(0 0 0 / 50%),
+                3px -1px 6px 0px rgb(0 0 0 / 30%);
+        }
+        50%{
+            transform: translateX(-10%) translateY(7%);
+            box-shadow:8px 6px 10px 1px rgb(0 0 0 / 50%),
+                9px 0px 6px 0px rgb(0 0 0 / 30%);
+        }
+        75%{
+            transform: translateX(10%) translateY(7%);
+            box-shadow:1px 6px 10px 1px rgb(0 0 0 / 50%),
+                -3px 1px 6px 0px rgb(0 0 0 / 30%);
+        }
+        100% {
+            transform: translateX(0%) translateY(0%);
+            box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
+                3px 1px 6px 0px rgb(0 0 0 / 30%);
+        }
+    }
 </style>
 <body>
     <template id="userCardTemplate">
         <style>
-            .dot{
+            .num .dot{
                 display: block !important;
-                width: 28%;
-                height: 28%;
-                top: 10%;
-                left: 30%;
+                position: relative !important;
+                width: 32%;
+                height: 32%;
+                animation: wave-1 infinite 4s ;
                 margin-top: 10%;
+                margin-left: 36%;
                 background-color: rgb(238 238 238);
                 border-radius: 50%;
             }
-            .one{
+            .num .zero{
+                width: 90%;
+                height: 90%;
+                top: 6%; 
+                left: 0;
+                animation: wave-1 infinite 4s ;
+                background-color: rgb(238 238 238);
+                border-radius: 50%;
+            }
+            .num .zero::before{
+                width: 86%;
+                height: 45%;
+                left: 5%;
+                top: 2%;
+                animation: wave-3 infinite 4s ;
+                border-radius:100px 100px 0 0;
+                background-color: rgb(0 171 194);
+            }
+            .num .one{
                 background-color: rgb(238 238 238);
                 width: 30%;
                 height: 100%;
                 animation: wave-1 infinite 4s ;
             }
-            .one::before{
+            .num .one::before{
                 animation-name: wave;
                 width: 100%;
                 height: 30%;
@@ -124,16 +177,16 @@
                 box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
                 3px 1px 6px 0px rgb(0 0 0 / 30%);
             }
-            .two{
+            .num .two{
                 background-color: rgb(128 222 235);
                 width: 40%;
-                margin-left: 30%;
                 height: 75%;
+                margin-left: 40%;
                 border-radius:0 100px 100px 0;
                 animation: wave-1 infinite 4s ;
                 z-index: 10;
             }
-            .two::before{
+            .num .two::before{
                 animation-name: wave;
                 width: 75%;
                 height: 38%;
@@ -145,7 +198,7 @@
                 box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
                 3px 1px 6px 0px rgb(0 0 0 / 30%);
             }
-            .two::after{
+            .num .two::after{
                 animation-name: wave;
                 width: 200%;
                 height: 30%;
@@ -156,53 +209,237 @@
                 background-color: rgb(238 238 238);
                 box-shadow:2px 2px 3px 0px rgb(0 0 0 / 50%);
             }
-            .three-1{
+            .num .three-1{
                 background-color: rgb(128 222 235);
                 width: 36%;
-                height: 60%;
-                left: 30%;
-                top: 33%;
+                height: 55%;
+                left: 40%;
+                top: -16%;
                 border-radius:0 100px 100px 0;
                 animation: wave-1 infinite 4s ;
                 z-index: 10;
             }
-            .three-2{
-                background-color: rgb(238 238 220);
-                width: 40%;
-                height: 60%;
-                left: 30%;
-                top: 60%;
+            .num .three-1::before,.num .three-2::before{
+                width: 80%;
+                height: 46%;
+                left: -80%;
+                top: -5%;
+                border-radius: 50%;
+                animation: wave infinite 4s ;
+                box-shadow:2px 2px 3px 0px rgb(0 0 0 / 50%);
+                background-color: rgb(0 171 194);
+            }
+            .num .three-2::before{
+                top: 50%;
+                animation: wave-1 infinite 4s ;
+                background-color: rgb(128 222 235);
+            }
+            .num .three-2{
+                background-color: rgb(238 238 238);
+                width: 42%;
+                height: 70%;
+                left: -5%;
+                top: 26%;
                 border-radius:0 100px 100px 0;
                 animation: wave-1 infinite 4s ;
                 z-index: 1;
             }
+            .num .four{
+                background-color: rgb(238 238 238);
+                width: 30%;
+                height: 100%;
+                left: 10%;
+                animation: wave-1 infinite 4s ;
+            }
+            .num .four::before{
+                width: 160%;
+                height: 60%;
+                left: -120%;
+                top: -5%;
+                border-radius: 100px 0 0 0;
+                animation: wave-3 infinite 4s ;
+                background-color: rgb(0 171 194);
+            }
+            .num .five{
+                width: 50%;
+                height: 76%;
+                left: 20%;
+                top: 24%;
+                animation: wave-2 infinite 4s ;
+                border-radius: 0 100px 100px 0;
+                background-color: rgb(238 238 238);
+            }
+            .num .five::before{
+                width: 80%;
+                height: 50%;
+                top: 2%;
+                left: -60%;
+                border-radius: 50%;
+                animation: wave-2 infinite 4s ;
+                box-shadow:2px 2px 3px 0px rgb(0 0 0 / 50%);
+                background-color: rgb(128 222 235);
+            }
+            .num .five::after{
+                width: 170%;
+                height: 28%;
+                top: -28%;
+                left: -70%;
+                animation: wave-3 infinite 4s ;
+                background-color: rgb(0 171 194);
+            }
+            .num .six{
+                width: 65%;
+                height: 65%;
+                left: 5%;
+                top: 30%;
+                border-radius: 50%;
+                animation: wave-2 infinite 4s ;
+                background-color: rgb(238 238 238);
+            }
+            .num .six::before{
+                width: 46%;
+                height: 150%;
+                left: -12%;
+                top: -70%;
+                animation: wave-3 infinite 4s ;
+                background-color: rgb(0 171 194);
+            }
+            .num .seven{
+                width: 16%;
+                height: 95%;
+                left: 18%;
+                top: 0%;
+                animation: wave-2 infinite 4s ;
+                background-color: rgb(238 238 238);
+            }
+            .num .seven::before{
+                width: 360%;
+                height: 32%;
+                left: -360%;
+                top: 0%;
+                animation: wave-3 infinite 4s ;
+                background-color: rgb(0 171 194);
+            }
+            .num .eight{
+                width: 70%;
+                height: 70%;
+                left: 0%;
+                top: 30%;
+                border-radius: 50%;
+                animation: wave-2 infinite 4s ;
+                background-color: rgb(238 238 238);
+            }
+            .num .eight::before{
+                width: 86%;
+                height: 86%;
+                top: -60%;
+                left: 5%;
+                border-radius: 50%;
+                animation: wave-3 infinite 4s ;
+                background-color: rgb(0 171 194);
+            }
+            .num .nine{
+                width: 20%;
+                height: 90%;
+                left: 16%;
+                top: 0%;
+                border-radius: 0;
+                animation: wave-2 infinite 4s ;
+                background-color: rgb(238 238 238);
+            }
+            .num .nine::before{
+                width: 330%;
+                height: 65%;
+                left: -280%;
+                top: -6%;
+                border-radius: 50%;
+                animation: wave-3 infinite 4s ;
+                background-color: rgb(0 171 194);
+            }
         </style>
-        <div class="num">
+        <div class="num" id="hour-1">
+            <span class="zero shadow-1"></span>
+            <span class="shadow-1"></span>
+            
+        </div>
+        <div class="num" id="hour-2">
             <span class="one shadow-1"></span>
+            <span class="shadow-1"></span>
         </div>
         <div class="num">
             <span class="dot shadow-1"></span>
             <span class="dot shadow-1"></span>
         </div>
-        <div class="num">
+        <div class="num" id="min-1">
             <span class="two shadow-1"></span>
+            <span class="shadow-1"></span>
         </div>
-        <div class="num">
+        <div class="num" id="min-2">
             <span class="three-1 shadow-1"></span>
             <span class="three-2 shadow-1"></span>
         </div>
+        <div class="num">
+            <span class="dot shadow-1"></span>
+            <span class="dot shadow-1"></span>
+        </div>
+        <div class="num" id="sec-1">
+            <span class="two shadow-1"></span>
+            <span class="shadow-1"></span>
+        </div>
+        <div class="num" id="sec-2">
+            <span class="three-1 shadow-1"></span>
+            <span class="three-2 shadow-1"></span>
+        </div>
+        <script>
+            let className = {
+                0:['zero'],
+                1:['one'],
+                2:['two'],
+                3:['three-1','three-2'],
+                4:['four'],
+                5:['five'],
+                6:['six'],
+                7:['seven'],
+                8:['eight'],
+                9:['nine']
+            }
+            let addZero = (arr) => {
+                if (arr.length < 2) {
+                    arr.unshift('0')
+                }
+                return arr
+            }
+            let changeClassName = (numNode,num) => {
+                numNode.children[0].className = className[num][0] + ' ' + 'shadow-1'
+                numNode.children[1].className = className[num][1] ? className[num][1] + ' ' + 'shadow-1' : 'shadow-1'
+            }
+            setInterval(() => {
+                let time = new Date()
+                let hour = addZero(time.getHours().toString().split(''))
+                let min = addZero(time.getMinutes().toString().split(''))
+                let sec = addZero(time.getSeconds().toString().split(''))
+                console
+                changeClassName(document.getElementById('hour-1'), hour[0])
+                changeClassName(document.getElementById('hour-2'), hour[1])
+                changeClassName(document.getElementById('min-1'), min[0])
+                changeClassName(document.getElementById('min-2'), min[1])
+                changeClassName(document.getElementById('sec-1'), sec[0])
+                changeClassName(document.getElementById('sec-2'), sec[1])
+            }, 1000);
+        </script>
     </template>
-    <muti-nums></muti-nums>
+    <muti-nums data-time="123"></muti-nums>
 </body>
 <script>
-    class Nums extends HTMLElement {
-        constructor() {
+    class clock extends HTMLElement {
+        constructor(time) {
             super();
+            console.log(time)
             var templateElem = document.getElementById('userCardTemplate');
             var content = templateElem.content.cloneNode(true);
             this.appendChild(content);
         }
     }
-    window.customElements.define('muti-nums', Nums);
+    window.customElements.define('muti-nums', clock);
 </script>
 </html>
