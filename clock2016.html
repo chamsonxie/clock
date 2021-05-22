@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    :root {
+        --material-white-color: rgb(238,238,238);
+        --material-blue-color: rgb(0,171,194);
+        --material-light-blue-color: rgb(128,222,235);
+        --main-bg-color: rgb(20,189,215);
+    }
+    html{
+        background-color: #fff;
+    }
+    .num {
+        position: relative;
+        margin: 30px 10px;
+        border-radius: 20px;
+        padding: 16px;
+        border: 1px solid rgb(218, 218, 218, .3);
+        height: calc(100vw / 5 - 56px);
+        width: calc(100vw / 5 - 56px);
+        float: left;
+        text-align: center;
+    }
+    @keyframes wave{
+        0%{
+            transform: translateX(0%) translateY(0%);
+            box-shadow:3px 10px 10px 1px rgb(0 0 0 / 30%),
+                3px 1px 6px 0px rgb(0 0 0 / 20%);
+        }
+        25%{
+            transform: translateX(0%) translateY(30%);
+            box-shadow:3px 5px 10px 1px rgb(0 0 0 / 30%),
+                3px -1px 6px 0px rgb(0 0 0 / 20%);
+        }
+        50%{
+            transform: translateX(-30%) translateY(15%);
+            box-shadow:8px 6px 10px 1px rgb(0 0 0 / 30%),
+                9px 0px 6px 0px rgb(0 0 0 / 20%);
+        }
+        75%{
+            transform: translateX(5%) translateY(15%);
+            box-shadow:1px 6px 10px 1px rgb(0 0 0 / 30%),
+                -3px 1px 6px 0px rgb(0 0 0 / 20%);
+        }
+        100% {
+            transform: translateX(0%) translateY(0%);
+            box-shadow:3px 10px 10px 1px rgb(0 0 0 / 30%),
+                3px 1px 6px 0px rgb(0 0 0 / 20%);
+        }
+    }
+    @keyframes wave-1{
+        0%{
+            transform: translateX(0px) translateY(0px);
+        }
+        25%{
+            transform: translateX(0px) translateY(10px);
+        }
+        50%{
+            transform: translateX(-10px) translateY(5px);
+        }
+        75%{
+            transform: translateX(10px) translateY(5px);
+        }
+        100% {
+            transform: translateX(0px) translateY(0px);
+        }
+    }
+    @keyframes wave-2{
+        0%{
+            transform: translateX(0px) translateY(0px);
+        }
+        25%{
+            transform: translateX(0px) translateY(5px);
+        }
+        50%{
+            transform: translateX(-5px) translateY(3px);
+        }
+        75%{
+            transform: translateX(5px) translateY(3px);
+        }
+        100% {
+            transform: translateX(0px) translateY(0px);
+        }
+    }
+    @keyframes wave-3{
+        0%{
+            transform: translateX(0%) translateY(0%);
+            box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
+                3px 1px 6px 0px rgb(0 0 0 / 30%);
+        }
+        25%{
+            transform: translateX(0%) translateY(15%);
+            box-shadow:3px 5px 10px 1px rgb(0 0 0 / 50%),
+                3px -1px 6px 0px rgb(0 0 0 / 30%);
+        }
+        50%{
+            transform: translateX(-10%) translateY(7%);
+            box-shadow:8px 6px 10px 1px rgb(0 0 0 / 50%),
+                9px 0px 6px 0px rgb(0 0 0 / 30%);
+        }
+        75%{
+            transform: translateX(10%) translateY(7%);
+            box-shadow:1px 6px 10px 1px rgb(0 0 0 / 50%),
+                -3px 1px 6px 0px rgb(0 0 0 / 30%);
+        }
+        100% {
+            transform: translateX(0%) translateY(0%);
+            box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
+                3px 1px 6px 0px rgb(0 0 0 / 30%);
+        }
+    }
+</style>
+<body>
+    <template id="clock">
+        <style>
+            .num .dot{
+                display: block !important;
+                position: relative !important;
+                width: 32%;
+                height: 32%;
+                margin-top: 10%;
+                margin-left: 36%;
+                background-color: var(--material-white-color);
+                border-radius: 50%;
+            }
+            .num span{
+                display: block;
+                width: 0%;
+                height: 0%;
+                position: absolute;
+                transition: all 0.5s;
+            }
+            .num .zero-1{
+                width: calc(70% - 2px);
+                height: 32%;
+                left: 15%;
+                top: 0%;
+                border: 1px solid var(--material-blue-color);
+                border-radius:100px 100px 0 0;
+                background-color: transparent;
+            }
+            .num .zero-2{
+                width: 70%;
+                height: 32%;
+                left: 15%;
+                top: 32%;
+                background-color: var(--material-blue-color);
+            }
+            .num .zero-3{
+                width: 70%;
+                height: 32%;
+                left: 15%;
+                top: 64%;
+                opacity: .3;
+                border-radius:0 0 100px 100px;
+                background-color: var(--material-blue-color);
+            }
+            .num .one-1{
+                width: 24%;
+                height: 80%;
+                left: 40%;
+                top: 5%;
+                border: 1px solid var(--material-blue-color);
+                background-color: transparent;
+            }
+            .num .one-2{
+                width: 30%;
+                height: 30%;
+                left: 24%;
+                top: 5%;
+                border-radius: 50%;
+                background-color: var(--material-blue-color);
+            }
+            .num .two-1{
+                width: 70%;
+                height: 20%;
+                left: 16%;
+                top: 70%;
+                z-index: 10;
+                background-color: var(--material-white-color);
+            }
+            .num .two-2{
+                width: 26%;
+                height: 26%;
+                border-radius: 50%;
+                left: 18%;
+                top: 8%;
+                background-color: var(--material-blue-color);
+            }
+            .num .two-3{
+                background-color: var(--material-light-blue-color);
+                width: 36%;
+                height: 55%;
+                top: 10%;
+                left: 50%;
+                border-radius:0 100px 100px 0;
+                z-index: 10;
+            }
+            
+            .num .three-1{
+                background-color: var(--material-light-blue-color);
+                width: 28%;
+                height: 40%;
+                left: 40%;
+                top: 5%;
+                border-radius:0 100px 100px 0;
+                z-index: 10;
+            }
+            .num .three-2{
+                width: 24%;
+                height: 24%;
+                left: 14%;
+                top: 5%;
+                z-index: 10;
+                border-radius: 50%;
+                background-color: var(--material-blue-color);
+            }
+            .num .three-3{
+                width: 36%;
+                height: 50%;
+                left: 42%;
+                top: 36%;
+                border-radius:0 100px 100px 0;
+                background-color: var(--material-white-color);
+                z-index: 1;
+            }
+            .num .three-4{
+                width: 28%;
+                height: 28%;
+                left: 10%;
+                top: 60%;
+                z-index: 11;
+                border-radius: 50%;
+                background-color: var(--material-light-blue-color);
+            }
+            .num .four-1{
+                border: 1px solid var(--material-blue-color);
+                width: 20%;
+                height: 24%;
+                left: 55%;
+                top: 65%;
+            }
+            .num .four-3{
+                width: 56%;
+                height: 48%;
+                left: 20%;
+                top: 8%;
+                z-index: 10;
+                border-radius: 100px 0 0 0;
+                background-color: var(--material-blue-color);
+            }
+            .num .four-4{
+                width: 70%;
+                height: 10%;
+                left: 20%;
+                top: 56%;
+                z-index: 5;
+                background-color: var(--material-light-blue-color);
+            }
+            .num .five-1{
+                width: 42%;
+                height: 56%;
+                left: 48%;
+                top: 32%;
+                border-radius: 0 100px 100px 0;
+                background-color: var(--material-white-color);
+            }
+            .num .five-3{
+                width: 24%;
+                height: 24%;
+                top: 32%;
+                left: 20%;
+                border-radius: 50%;
+                background-color: var(--material-light-blue-color);
+            }
+            .num .five-4{
+                width: 76%;
+                height: 20%;
+                top: 10%;
+                left: 16%;
+                background-color: var(--material-blue-color);
+            }
+            .num .six-1{
+                width: 55%;
+                height: 55%;
+                left: 30%;
+                top: 36%;
+                border-radius: 50%;
+                background-color: var(--material-white-color);
+            }
+            .num .six-4{
+                width: 26%;
+                height: 60%;
+                left: 25%;
+                top: 0%;
+                transform: rotate(30deg);
+                background-color: var(--material-blue-color);
+            }
+            .num .seven-1{
+                width: 14%;
+                height: 78%;
+                left: 56%;
+                top: 8%;
+                background-color: var(--material-white-color);
+            }
+            .num .seven-4{
+                width: 56%;
+                height: 25%;
+                left: 24%;
+                top: 8%;
+                background-color: var(--material-blue-color);
+            }
+            .num .eight-1{
+                width: 65%;
+                height: 65%;
+                left: 17%;
+                top: 30%;
+                border-radius: 50%;
+                background-color: var(--material-white-color);
+            }
+            .num .eight-4{
+                width: 50%;
+                height: 50%;
+                left: 24%;
+                top: 3%;
+                border-radius: 50%;
+                background-color: var(--material-blue-color);
+            }
+            .num .nine-1{
+                width: 20%;
+                height: 60%;
+                left: 60%;
+                top: 30%;
+                border-radius: 0;
+                background-color: var(--material-white-color);
+            }
+            .num .nine-4{
+                width: 50%;
+                height: 50%;
+                left: 20%;
+                top: 6%;
+                border-radius: 50%;
+                background-color: var(--material-blue-color);
+            }
+        </style>
+        <div style="overflow: hidden;">
+            <div class="num" id="hour-1">
+                <span class="four-1"></span>
+                <span class="four-2"></span>
+                <span class="four-3"></span>
+                <span class="four-4"></span>
+            </div>
+            <div class="num" id="hour-2">
+                <span class="one-1"></span>
+                <span class="one-2"></span>
+                <span class="one-3"></span>
+                <span class="one-4"></span>
+            </div>
+            <div class="num">
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="num" id="min-1">
+                <span class="zero-1"></span>
+                <span class="zero-2"></span>
+                <span class="zero-3"></span>
+                <span class="zero-4"></span>
+            </div>
+            <div class="num" id="min-2">
+                <span class="zero-1"></span>
+                <span class="zero-2"></span>
+                <span class="zero-3"></span>
+                <span class="zero-4"></span>
+            </div>
+            <div class="num">
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="num" id="sec-1">
+                <span class="zero-1"></span>
+                <span class="zero-2"></span>
+                <span class="zero-3"></span>
+                <span class="zero-4"></span>
+            </div>
+            <div class="num" id="sec-2">
+                <span class="zero-1"></span>
+                <span class="zero-2"></span>
+                <span class="zero-3"></span>
+                <span class="zero-4"></span>
+            </div>
+        </div>
+        <script>
+            let className = {
+                0:'zero',
+                1:'one',
+                2:'two',
+                3:'three',
+                4:'four',
+                5:'five',
+                6:'six',
+                7:'seven',
+                8:'eight',
+                9:'nine'
+            }
+            let addZero = (arr) => {
+                if (arr.length < 2) {
+                    arr.unshift('0')
+                }
+                return arr
+            }
+            let changeClassName = (numNode,num) => {
+                numNode.children[0] && (numNode.children[0].className = className[num] + '-1')
+                numNode.children[1] && (numNode.children[1].className = className[num] + '-2')
+                numNode.children[2] && (numNode.children[2].className = className[num] + '-3')
+                numNode.children[3] && (numNode.children[3].className = className[num] + '-4')
+            }
+            setInterval(() => {
+                let time = new Date()
+                let hour = addZero(time.getHours().toString().split(''))
+                let min = addZero(time.getMinutes().toString().split(''))
+                let sec = addZero(time.getSeconds().toString().split(''))
+                // changeClassName(document.getElementById('hour-1'), hour[0])
+                // changeClassName(document.getElementById('hour-2'), hour[1])
+                // changeClassName(document.getElementById('min-1'), min[0])
+                // changeClassName(document.getElementById('min-2'), min[1])
+                changeClassName(document.getElementById('sec-1'), sec[0])
+                changeClassName(document.getElementById('sec-2'), sec[1])
+            }, 1000);
+        </script>
+    </template>
+    <material-clock></material-clock>
+</body>
+<script>
+    class clock extends HTMLElement {
+        constructor(time) {
+            super();
+            var templateElem = document.getElementById('clock');
+            var content = templateElem.content.cloneNode(true);
+            this.appendChild(content);
+        }
+    }
+    window.customElements.define('material-clock', clock);
+</script>
+</html>
