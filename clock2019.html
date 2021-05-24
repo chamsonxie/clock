@@ -137,22 +137,22 @@
                 transition: all 0.5s;
             }
             .num .zero-1{
-                width: calc(68% - 2px);
+                width: 68%;
                 height: 34%;
                 left: 15%;
                 top: 16%;
                 z-index: 10;
-                border: 1px solid var(--material-blue-color);
                 border-radius:100px 100px 0 0;
-                background-color: #fff;
+                background-color: var(--material-blue-color);
             }
             .num .zero-2{
-                width: 68%;
-                height: 68%;
+                width: calc(68% - 2px);
+                height: calc(68% - 2px);
                 left: 15%;
                 top: 16%;
+                border: 1px solid var(--material-blue-color);
                 border-radius: 50%;
-                background-color: var(--material-blue-color);
+                background-color: #fff;
             }
             .num .one-1{
                 width: 24%;
@@ -344,10 +344,10 @@
         </style>
         <div style="overflow: hidden;">
             <div class="num" id="hour-1">
-                <span class="four-1"></span>
-                <span class="four-2"></span>
-                <span class="four-3"></span>
-                <span class="four-4"></span>
+                <span class="zero-1"></span>
+                <span class="zero-2"></span>
+                <span class="zero-3"></span>
+                <span class="zero-4"></span>
             </div>
             <div class="num" id="hour-2">
                 <span class="one-1"></span>
@@ -360,10 +360,10 @@
                 <span class="dot"></span>
             </div>
             <div class="num" id="min-1">
-                <span class="zero-1"></span>
-                <span class="zero-2"></span>
-                <span class="zero-3"></span>
-                <span class="zero-4"></span>
+                <span class="three-1"></span>
+                <span class="three-2"></span>
+                <span class="three-3"></span>
+                <span class="three-4"></span>
             </div>
             <div class="num" id="min-2">
                 <span class="zero-1"></span>

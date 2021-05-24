@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Material Clock</title>
 </head>
 <style>
     :root {
@@ -19,9 +19,10 @@
     .num {
         position: relative;
         margin: 30px 10px;
-        border-radius: 20px;
+        border-radius: 0px;
         padding: 16px;
-        border: 1px solid rgb(218, 218, 218, .3);
+        /* box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 30%); */
+        /* background-color: var(--main-bg-color); */
         height: calc(100vw / 8 - 56px);
         width: calc(100vw / 8 - 56px);
         float: left;
@@ -124,7 +125,7 @@
                 position: relative !important;
                 width: 32%;
                 height: 32%;
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 margin-top: 10%;
                 margin-left: 36%;
                 background-color: var(--material-white-color);
@@ -152,7 +153,7 @@
                 height: 35%;
                 left: 15%;
                 top: 10%;
-                animation: wave-3 infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 border-radius:100px 100px 0 0;
                 background-color: var(--material-blue-color);
             }
@@ -170,12 +171,9 @@
                 border-radius: 50%;
                 left: 24%;
                 top: 5%;
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-blue-color);
-                box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
-                3px 1px 6px 0px rgb(0 0 0 / 30%);
             }
-            
             .num .two-1{
                 width: 70%;
                 height: 20%;
@@ -192,10 +190,8 @@
                 border-radius: 50%;
                 left: 18%;
                 top: 8%;
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-blue-color);
-                box-shadow:3px 10px 10px 1px rgb(0 0 0 / 50%),
-                3px 1px 6px 0px rgb(0 0 0 / 30%);
             }
             .num .two-3{
                 background-color: var(--material-light-blue-color);
@@ -207,7 +203,6 @@
                 animation: wave-2 infinite 4s ;
                 z-index: 10;
             }
-            
             .num .three-1{
                 background-color: var(--material-light-blue-color);
                 width: 28%;
@@ -225,7 +220,7 @@
                 top: 5%;
                 z-index: 10;
                 border-radius: 50%;
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 box-shadow:2px 2px 3px 0px rgb(0 0 0 / 50%);
                 background-color: var(--material-blue-color);
             }
@@ -235,7 +230,7 @@
                 left: 42%;
                 top: 36%;
                 border-radius:0 100px 100px 0;
-                animation: wave-1 infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-white-color);
                 z-index: 1;
             }
@@ -265,16 +260,16 @@
                 top: 6%;
                 z-index: 10;
                 border-radius: 100px 0 0 0;
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-blue-color);
             }
             .num .four-4{
                 width: 66%;
                 height: 10%;
                 left: 20%;
-                top: 56%;
+                top: 49%;
                 z-index: 5;
-                animation: wave-1 infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-light-blue-color);
             }
             .num .five-1{
@@ -300,7 +295,7 @@
                 height: 20%;
                 top: 10%;
                 left: 16%;
-                animation: wave-3 infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-blue-color);
             }
             .num .six-1{
@@ -318,23 +313,23 @@
                 left: 25%;
                 top: 0%;
                 transform: rotate(30deg);
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-blue-color);
             }
             .num .seven-1{
                 width: 14%;
                 height: 78%;
-                left: 56%;
+                left: 58%;
                 top: 8%;
                 animation: wave-2 infinite 4s ;
                 background-color: var(--material-white-color);
             }
             .num .seven-4{
-                width: 56%;
+                width: 46%;
                 height: 25%;
-                left: 24%;
+                left: 18%;
                 top: 8%;
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-blue-color);
             }
             .num .eight-1{
@@ -343,7 +338,7 @@
                 left: 17%;
                 top: 30%;
                 border-radius: 50%;
-                animation: wave-1 infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-white-color);
             }
             .num .eight-4{
@@ -352,7 +347,7 @@
                 left: 24%;
                 top: 3%;
                 border-radius: 50%;
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-blue-color);
             }
             .num .nine-1{
@@ -370,11 +365,11 @@
                 left: 20%;
                 top: 6%;
                 border-radius: 50%;
-                animation: wave infinite 4s ;
+                animation: wave-2 infinite 4s ;
                 background-color: var(--material-blue-color);
             }
         </style>
-        <div style="overflow: hidden;">
+        <div style="overflow: hidden;margin-top: 30vh;">
             <div class="num" id="hour-1">
                 <span class="zero-1"></span>
                 <span class="zero-2"></span>
@@ -422,16 +417,16 @@
         </div>
         <script>
             let className = {
-                0:'zero',
-                1:'one',
-                2:'two',
-                3:'three',
-                4:'four',
-                5:'five',
-                6:'six',
-                7:'seven',
-                8:'eight',
-                9:'nine'
+                0: 'zero',
+                1: 'one',
+                2: 'two',
+                3: 'three',
+                4: 'four',
+                5: 'five',
+                6: 'six',
+                7: 'seven',
+                8: 'eight',
+                9: 'nine'
             }
             let addZero = (arr) => {
                 if (arr.length < 2) {
